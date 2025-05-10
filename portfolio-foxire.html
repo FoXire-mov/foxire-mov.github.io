@@ -178,48 +178,57 @@ VocaDuo2024参加作品(CAPRICE8)
  </div>
   </section>
  
-<section>
-  <h3>サムネイルサンプル<span>-thumbnail sample-</span></h3>
-  <div style="
+<style>
+  .thumb-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-  ">
-    <div style="
-      flex: 1 1 45%;
-      max-width: 45%;
-      text-align: center;
-    ">
-      <img src="sam_soudatta.jpg" style="width: 100%; height: auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+  }
+
+  .thumb-item {
+    flex: 1 1 45%;
+    max-width: 45%;
+    text-align: center;
+  }
+
+  .thumb-item img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .thumb-item {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+</style>
+
+<section>
+  <h3>サムネイルサンプル<span>-thumbnail sample-</span></h3>
+  <div class="thumb-container">
+    <div class="thumb-item">
+      <img src="sam_soudatta.jpg" alt="">
       <p>そうだった</p>
     </div>
-    <div style="
-      flex: 1 1 45%;
-      max-width: 45%;
-      text-align: center;
-    ">
-      <img src="1.jpg" style="width: 100%; height: auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+    <div class="thumb-item">
+      <img src="1.jpg" alt="">
       <p>よくある構図風</p>
     </div>
-    <div style="
-      flex: 1 1 45%;
-      max-width: 45%;
-      text-align: center;
-    ">
-      <img src="2.jpg" style="width: 100%; height: auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+    <div class="thumb-item">
+      <img src="2.jpg" alt="">
       <p>VTuber風</p>
     </div>
-    <div style="
-      flex: 1 1 45%;
-      max-width: 45%;
-      text-align: center;
-    ">
-      <img src="3.jpg" style="width: 100%; height: auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+    <div class="thumb-item">
+      <img src="3.jpg" alt="">
       <p>MV風</p>
     </div>
   </div>
 </section>
+
 
  
 <!-- <section>
