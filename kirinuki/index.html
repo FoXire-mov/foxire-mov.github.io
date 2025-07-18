@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>774chat 切り抜き支援ツール ver6.3</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>切り抜き支援ツール ver6.3</h2>
+
+  <div id="topInputWrapper">
+    <div id="inputLeft">
+
+      <div>
+        <label>チャットJSONファイル：
+          <input type="file" id="fileInput" accept=".json" />
+        </label>
+        <span id="statusMsg"></span>
+      </div>
+
+      <div style="margin-top:10px;">
+        <label>動画タイトル：
+          <input type="text" id="videoTitleInput" size="60" placeholder="動画タイトルを入力" />
+        </label>
+      </div>
+
+      <div style="margin-top:10px;">
+        <label>YouTube動画URL：
+          <input type="text" id="videoUrlInput" size="60" placeholder="https://www.youtube.com/watch?v=xxxxx" />
+        </label>
+      </div>
+
+      <div style="margin-top:5px;">
+        <label>動画の長さ（例: 1:23:45 or 秒）：
+          <input type="text" id="videoDurationInput" size="10" />
+        </label>
+        <label>リンク補正（秒）：
+          <input type="number" id="offsetInput" value="-20" size="4" />
+        </label>
+	<label style="margin-left: 10px;">開始オフセット（秒）：<input id="startOffset" type="number" value="300" style="width: 60px;" />
+	</label>
+  	<label style="margin-left: 10px;">終了オフセット（秒）：<input id="endOffset" type="number" value="300" style="width: 60px;" />
+	</label>
+      </div>
+
+      <div style="margin-top:5px;">
+        <label>検索ワード（スペース区切り）：
+          <input type="text" id="keywordsInput" size="40" placeholder="例：かわいい こわい" />
+        </label>
+        <button onclick="analyze()">🔍 解析</button>
+      </div>
+
+      <div style="margin-top:10px;">
+        <button onclick="savePickedCandidates('csv')">💾 選択候補をCSV保存</button>
+        <button onclick="savePickedCandidates('txt')">💾 選択候補をTXT保存</button>
+      </div>
+
+    </div>
+
+    <div id="inputRight">
+      <div id="videoContainerSmall"></div>
+    </div>
+  </div>
+
+  <hr />
+
+  <h3>📊 コメントグラフ</h3>
+  <canvas id="chatChart" height="400"></canvas>
+
+  <h3>📈 コメント数ピーク TOP10リンク</h3>
+  <div id="peakTop10List"></div>
+
+  <h3>📌 切り抜き候補リンク（チェックしてメモ入力可能）</h3>
+  <div id="iconLegend" style="margin-bottom:10px;">
+    🔍：検索ワード　🧠：感情ワード　📣：ワード連打　📈：コメント数ピーク　📚：人気ワード初出　🔥：優先スコア上位
+  </div>
+
+  <div id="highlightWrapper">
+    <div id="highlightCol1" class="highlight-col"></div>
+    <div id="highlightCol2" class="highlight-col"></div>
+  </div>
+
+  <h3>🗣 コメント頻出ワード TOP20</h3>
+  <div id="topWordsList"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
