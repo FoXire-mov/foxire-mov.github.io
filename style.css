@@ -824,8 +824,8 @@ color: #E7DA66;
   height: 80%;
 }
 
-/* 背景が白の場合に表示できるように黒文字としている */
-.slick-next:before {
+/* 背景が白の場合に表示できるように黒文字としている 
+ .slick-next:before { 
   content: '→';
   color: black;
 }
@@ -833,4 +833,4 @@ color: #E7DA66;
 .slick-prev:before {
   content: '←';
   color: black;
-}
+ }  */
