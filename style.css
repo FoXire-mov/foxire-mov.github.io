@@ -812,7 +812,6 @@ color: #E7DA66;
 /* レスポンシブ対応 */
 .slide-item {
   position: relative;
-　aspect-ratio: 9 / 16;
   height: 100%;
   width: auto;
 }
