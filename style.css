@@ -820,8 +820,8 @@ color: #E7DA66;
   position: absolute;
   top:   0;
   right: 0;
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
 }
 
 /* 背景が白の場合に表示できるように黒文字としている */
