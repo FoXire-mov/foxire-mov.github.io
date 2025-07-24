@@ -8,7 +8,3 @@
     swipe: true,
     swipeToSlide: true
   });
-
-  $(".slide").bind('touchstart', function() {
-    return true;
-  });
