@@ -812,7 +812,7 @@ color: #E7DA66;
 /* レスポンシブ対応 */
 .slide-item {
   position: relative;
-  width: 100%;
+  height: 100%;
   padding-top: 56.25%;
 }
 
