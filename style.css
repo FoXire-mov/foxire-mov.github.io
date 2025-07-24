@@ -804,9 +804,11 @@ color: #E7DA66;
 /* slick用*/
 /* 動画表示領域（表示サイズ）の設定 */
 .slide-wrapper {
-  width: 100%;
-  max-width: 489px;
-  margin: auto
+width: 100%; /*50%でもいいのかな*/
+height: auto;
+aspect-ratio: 9 / 16;
+max-width: 600px;
+margin: auto
 }
 
 /* レスポンシブ対応 */
