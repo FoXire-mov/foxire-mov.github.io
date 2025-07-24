@@ -1,4 +1,4 @@
- $('.slide').slick({
+ $(".slide").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
@@ -9,6 +9,6 @@
     swipeToSlide: true
   });
 
-  $('.slide').bind('touchstart', function() {
+  $(".slide").bind('touchstart', function() {
     return true;
   });
