@@ -805,13 +805,14 @@ color: #E7DA66;
 /* 動画表示領域（表示サイズ）の設定 */
 .slide-wrapper {
 width: 100%; /*50%でもいいのかな*/
-margin: auto
+max-width: 300px;
+margin: 0 auto
 }
 
 /* レスポンシブ対応 */
 .slide-item {
+ position: relative;
  max-width: 300px;        /* ← 1スライドの最大サイズを制限 */
-position: relative;
   margin: auto;
   padding: 5px;/*動画の間隔*/
 }
