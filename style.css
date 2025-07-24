@@ -805,8 +805,8 @@ color: #E7DA66;
 /* 動画表示領域（表示サイズ）の設定 */
 .slide-wrapper {
 width: 100%; /*50%でもいいのかな*/
-max-width: 605px;/*ここを調整していく*/
-height: 400px;
+max-width: 600px;/*ここを調整していく*/
+height: 535px;
 margin: 0 auto
 }
 
