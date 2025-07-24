@@ -6,6 +6,5 @@ $(".slide").slick({
     autoplaySpeed: 3000, // 自動再生のスピード（ミリ秒単位）
     infinite: true, // スライドのループを有効にするか
     accessibility: true,
-    swipe: true,
   });
 });
