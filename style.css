@@ -812,8 +812,9 @@ margin: auto
 .slide-item {
  max-width: 300px;        /* ← 1スライドの最大サイズを制限 */
   margin: auto;
-  padding: 10px;
+  padding: 5px;/*動画の間隔*/
   box-sizing: border-box;
+  text-align: center;
 }
 
 .slide-item iframe {
