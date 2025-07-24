@@ -807,7 +807,7 @@ color: #E7DA66;
 width: 100%; /*50%でもいいのかな*/
 height: auto;
 aspect-ratio: 9 / 16;
-max-width: 244px;
+max-width: 100%;
 margin: auto
 }
 
