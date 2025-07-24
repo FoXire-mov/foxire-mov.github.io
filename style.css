@@ -811,19 +811,16 @@ margin: auto
 /* レスポンシブ対応 */
 .slide-item {
  max-width: 300px;        /* ← 1スライドの最大サイズを制限 */
+position: relative;
   margin: auto;
   padding: 5px;/*動画の間隔*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .slide-item iframe {
+  position: absolute;
   width: 100%;
   aspect-ratio: 9 / 16;    /* ← ちょうどショート動画比率 */
   height: auto;
-  display: block;
-  border: none;
 }
 
 /* 背景が白の場合に表示できるように黒文字としている 
