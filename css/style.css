@@ -1,1 +1,80 @@
-<a></a>
+/* リセット・ベース設定 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 共通コンテナ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section { padding: 100px 0; }
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+    letter-spacing: 0.1em;
+    border-left: 5px solid #ff004c; /* OTOIRO風アクセント */
+    padding-left: 20px;
+}
+
+/* PCナビの基本設定 */
+.pc-nav { display: block; }
+@media (max-width: 768px) { .pc-nav { display: none; } } /* スマホでは隠す */
+
+/* メニューボタン（ハンバーガー） */
+.menu-btn {
+    display: none;
+    width: 40px; height: 40px;
+    background: none; border: none;
+    position: relative; z-index: 2000; /* メニューより上に配置 */
+    cursor: pointer;
+}
+@media (max-width: 768px) { .menu-btn { display: block; } }
+
+.menu-btn span {
+    display: block; width: 30px; height: 1px;
+    background: #fff; position: absolute; left: 5px;
+    transition: 0.3s;
+}
+.menu-btn span:nth-child(1) { top: 15px; }
+.menu-btn span:nth-child(2) { top: 25px; }
+
+/* ボタンがクリックされた（active）時のバツ印アニメーション */
+.menu-btn.active span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.menu-btn.active span:nth-child(2) { transform: translateY(-5px) rotate(-45deg); }
+
+/* 全画面スマホメニュー */
+.sp-nav {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background: #000; /* OTOIRO風の真っ黒背景 */
+    z-index: 1500;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    transform: translateY(-100%); /* 最初は上に隠しておく */
+    transition: transform 0.5s ease; /* ヌルッと動かす */
+}
+.sp-nav.active { transform: translateY(0); } /* activeクラスがついたら表示 */
+
+.sp-nav ul { list-style: none; text-align: center; padding: 0; }
+.sp-nav ul li { margin: 30px 0; }
+.sp-nav ul a {
+    color: #fff; text-decoration: none;
+    font-size: 2rem; font-weight: 900;
+    letter-spacing: 0.2em;
+    font-family: 'Montserrat', sans-serif;
+}
+.sp-nav-info {
+    position: absolute; bottom: 40px;
+    color: #666; font-size: 0.7rem; letter-spacing: 0.1em;
+}
