@@ -78,3 +78,34 @@ body {
     position: absolute; bottom: 40px;
     color: #666; font-size: 0.7rem; letter-spacing: 0.1em;
 }
+
+/* メインの動画エリア */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* PCでは全画面 */
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    /* ここが重要！ */
+    object-fit: cover; 
+}
+
+/* スマホ用の調整（画面幅768px以下） */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; /* スマホでは少し高さを抑えて「横長感」を出す */
+    }
+    
+    .hero video {
+        /* スマホの縦長画面でも動画の「中央」がくるように調整 */
+        object-position: center center; 
+    }
+}
