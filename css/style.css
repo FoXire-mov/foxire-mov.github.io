@@ -85,6 +85,9 @@ body {
     width: 100%;
     height: 100vh; /* PCでは全画面 */
     overflow: hidden;
+    display: flex;
+    align-items: center; /* 上下中央 */
+    justify-content: center; /* 左右中央 */
 }
 
 .hero video {
@@ -96,6 +99,7 @@ body {
     height: 100%;
     /* ここが重要！ */
     object-fit: cover; 
+    z-index: 1; /* 一番下 */
 }
 
 /* スマホ用の調整（画面幅768px以下） */
@@ -109,7 +113,7 @@ body {
         object-position: center center; 
     }
 }
-
+/* ★ 動画を暗くするフィルター（オーバーレイ） */
 .hero::after {
     content: "";
     position: absolute;
@@ -117,4 +121,27 @@ body {
     width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
     z-index: 2;
+}
+/* 文字情報 */
+.hero-content {
+    position: relative;
+    z-index: 3; /* フィルターよりさらに上 */
+    text-align: center;
+
+    /* FoXire の文字（デカく、太く） */
+.hero-content h1 {
+    font-size: clamp(3rem, 10vw, 6rem); /* 画面幅に合わせてサイズが自動調整される */
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Visualizing Your Sound. の文字 */
+.hero-content p {
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
 }
