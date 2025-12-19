@@ -138,15 +138,23 @@ body {
 
 .menu-btn span {
     display: block; width: 30px; height: 1px;
-    background: #fff; position: absolute; left: 5px;
-    transition: 0.3s;
+    background: #fff; position: absolute; 
+    left: 5px;
+    transition: transform 0.4s, top 0.4s; /* アニメーションを滑らかに */
 }
 .menu-btn span:nth-child(1) { top: 15px; }
 .menu-btn span:nth-child(2) { top: 25px; }
 
-/* ボタンがクリックされた（active）時のバツ印アニメーション */
-.menu-btn.active span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
-.menu-btn.active span:nth-child(2) { transform: translateY(-5px) rotate(-45deg); }
+/* --- 閉じボタンに変形（activeクラスがついた時） --- */
+.menu-btn.active span:nth-child(1) {
+    top: 20px;
+    transform: rotate(45deg); /* 45度回転 */
+}
+
+.menu-btn.active span:nth-child(2) {
+    top: 20px;
+    transform: rotate(-45deg); /* 逆向きに45度回転 */
+}
 
 /* 全画面スマホメニュー */
 .sp-nav {
