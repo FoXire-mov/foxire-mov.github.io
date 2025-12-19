@@ -236,9 +236,9 @@ body {
 
 /* HISTORYセクション */
 .history-block { 
-    max-width: 600px; 
+    max-width: 400px; /* 横幅をギュッと絞る */
     margin: 100px auto 0; 
-    padding: 0 20px; /* スマホで端に寄りすぎないための余白 */
+    padding: 0 20px;
 }
 
 .sub-title { 
@@ -248,38 +248,31 @@ body {
     letter-spacing: 0.2em; 
 }
 
-/* リスト形式にして、日付と内容を縦に並べる（スマホ・PC共通で綺麗に見える手法） */
+/* リスト全体の見た目 */
+.history-list {
+    display: inline-block; /* 中身の幅に合わせる */
+    text-align: left;      /* 文字の左端を揃える */
+}
+
+/* 親要素でリストを中央に寄せるための調整 */
+.history-block {
+    text-align: center; 
+}
+
 .history-list dt { 
     font-family: 'Montserrat', sans-serif; 
     font-weight: 700; 
     color: #888; 
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-    text-align: center; /* 日付を中央に */
+    font-size: 0.85rem;
+    margin-bottom: 2px;
 }
 
 .history-list dd { 
-    margin-bottom: 30px; 
+    margin-bottom: 25px; 
     border-bottom: 1px solid #222; 
     padding-bottom: 15px; 
-    text-align: center; /* 内容も中央に */
     font-size: 1rem;
-}
-
-/* PCの時だけ、日付と内容を横に並べたい場合は以下を追加（お好みで） */
-@media screen and (min-width: 768px) {
-    .history-list {
-        display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 0 30px;
-    }
-    .history-list dt {
-        text-align: right; /* PCでは右寄せにして内容に近づける */
-        margin-bottom: 15px;
-    }
-    .history-list dd {
-        text-align: left; /* PCでは左寄せ */
-    }
+    min-width: 250px; /* 線の長さを揃える */
 }
 /* ============================================================
    7. 共通：SNSアイコンの設定
