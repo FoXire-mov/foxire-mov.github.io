@@ -234,30 +234,53 @@ body {
 .member-sns-link { display: inline-block; transition: 0.3s; }
 .member-sns-link:hover { transform: scale(1.1); }
 
-/* HISTORYセクション：中央寄せに修正 */
+/* HISTORYセクション */
 .history-block { 
-    max-width: 500px; /* 横幅を絞って中央に集める */
+    max-width: 600px; 
     margin: 100px auto 0; 
+    padding: 0 20px; /* スマホで端に寄りすぎないための余白 */
 }
-.sub-title { font-size: 1.5rem; text-align: center; margin-bottom: 40px; letter-spacing: 0.2em; }
-.history-list { 
-    display: grid; 
-    grid-template-columns: 100px 1fr; 
-    gap: 10px 20px; 
+
+.sub-title { 
+    font-size: 1.5rem; 
+    text-align: center; 
+    margin-bottom: 40px; 
+    letter-spacing: 0.2em; 
 }
+
+/* リスト形式にして、日付と内容を縦に並べる（スマホ・PC共通で綺麗に見える手法） */
 .history-list dt { 
     font-family: 'Montserrat', sans-serif; 
     font-weight: 700; 
     color: #888; 
-    text-align: right; /* 日付を右寄せにして内容に近づける */
-}
-.history-list dd { 
-    margin-bottom: 15px; 
-    border-bottom: 1px solid #222; 
-    padding-bottom: 15px; 
-    text-align: left; /* 内容は左寄せ */
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-align: center; /* 日付を中央に */
 }
 
+.history-list dd { 
+    margin-bottom: 30px; 
+    border-bottom: 1px solid #222; 
+    padding-bottom: 15px; 
+    text-align: center; /* 内容も中央に */
+    font-size: 1rem;
+}
+
+/* PCの時だけ、日付と内容を横に並べたい場合は以下を追加（お好みで） */
+@media screen and (min-width: 768px) {
+    .history-list {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 0 30px;
+    }
+    .history-list dt {
+        text-align: right; /* PCでは右寄せにして内容に近づける */
+        margin-bottom: 15px;
+    }
+    .history-list dd {
+        text-align: left; /* PCでは左寄せ */
+    }
+}
 /* ============================================================
    7. 共通：SNSアイコンの設定
    ============================================================ */
