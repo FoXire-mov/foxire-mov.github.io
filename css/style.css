@@ -223,29 +223,34 @@ body {
 /* ============================================================
    4. スマホ用レスポンシブ (Mobile Adjustments)
    ============================================================ */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    /* ヘッダー・ナビ周り */
     .header-inner { padding: 0 20px; }
     .pc-nav { display: none !important; }
     .menu-btn { display: block !important; }
     
+    /* トップページ（Hero） */
     .hero { height: 65vh; }
     .section-title { font-size: 2.5rem; }
     
+    /* WORKSページ全体 */
     .works-section { padding-top: 100px; }
-    .works-grid { grid-template-columns: 1fr; }
-}
-/* スマホ（768px以下）の時だけ、オーバーレイを常に表示 */
-@media screen and (max-width: 768px) {
+    .works-grid { 
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+
+    /* WORKS：スマホでは文字を常に下に表示 */
     .work-overlay {
-        opacity: 1 !important; /* 常に表示 */
-        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent) !important; /* 下からじわっと暗くする */
-        justify-content: flex-end !important; /* 文字を下に配置 */
+        opacity: 1 !important;
+        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%) !important;
+        justify-content: flex-end !important;
         padding-bottom: 15px !important;
     }
 
     .work-name {
         font-size: 1rem !important;
-        color: #fff !important; /* 文字色は白 */
+        color: #fff !important;
     }
 
     .work-category {
