@@ -183,6 +183,13 @@ display: inline-block;
     cursor: default; /* カーソルを指マークにしない */
     opacity: 0.6;    /* 少し薄くする */
     pointer-events: none;
+
+   /* カミングスーンのホバーは無効化 */
+.topics-item.coming-soon:hover {
+    padding-left: 15px; /* スライドさせない */
+    background-color: transparent;
+    border-left: none;
+}
 }
 .logo {
     display: flex;
