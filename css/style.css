@@ -110,6 +110,17 @@ body {
 .topics-item:hover { background: rgba(255,255,255,0.05); padding-left: 20px; }
 .topics-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); width: 120px; }
 
+/* カミングスーン用のスタイル */
+.topics-item.coming-soon {
+    cursor: default; /* カーソルを指マークにしない */
+    opacity: 0.6;    /* 少し薄くする */
+}
+
+.topics-item.coming-soon:hover {
+    background: transparent; /* ホバーしても背景を変えない */
+    padding-left: 10px;      /* ホバーで動かないようにする */
+}
+
 /* 共通ボタン */
 .view-more {
     display: inline-block; color: #fff; text-decoration: none; font-size: 0.8rem;
