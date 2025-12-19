@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (worksGrid && loadMoreBtn) {
         const INITIAL_COUNT = 6; // 最初に見せる数
-        const LOAD_COUNT = 4;    // MORE VIEWで追加する数
+        const LOAD_COUNT = 6;    // MORE VIEWで追加する数
 
         let currentFilter = 'all';
         let currentArtist = 'all';
