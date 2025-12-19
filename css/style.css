@@ -286,3 +286,36 @@ body {
         justify-content: flex-end; align-items: flex-start; padding: 15px;
     }
 }
+
+/* ============================================================
+   9. WORKS：もっと見るボタン (MORE VIEW)
+   ============================================================ */
+.more-btn-container {
+    text-align: center;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.load-more-btn {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 15px 60px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.load-more-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* JSでボタンを消すためのクラス */
+.more-btn-container.is-hidden {
+    display: none;
+}
