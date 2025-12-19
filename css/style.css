@@ -154,6 +154,7 @@ body {
     color: #333333;
     transition: all 0.3s ease;
     background-color: transparent;
+    box-sizing: border-box; /* パディング変更時のサイズ固定 */
 }
 
 .topics-item:hover { 
@@ -167,7 +168,7 @@ body {
     font-weight: 700;
     width: 120px;
     color: #888;
-}
+} /* ← ここを修正しました */
 
 /* カミングスーン設定 */
 .topics-item.coming-soon {
