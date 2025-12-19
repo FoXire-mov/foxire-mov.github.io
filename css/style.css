@@ -133,7 +133,7 @@ body {
     align-items: center;
 }
 .logo-img {
-    height: 60px;    /* ここで見た目の大きさを調整します */
+    height: 80px;    /* ここで見た目の大きさを調整します */
     width: auto;     /* 横幅は自動計算させて比率を維持 */
     display: block;
 }
@@ -200,10 +200,14 @@ body {
     .works-grid {
         grid-template-columns: repeat(2, 1fr) !important; /* タブレットは2列 */
     }
+   .logo-img {
+        height: 80px;
 }
 
 @media screen and (max-width: 960px) {
     .works-grid { grid-template-columns: repeat(2, 1fr) !important; }
+   .logo-img {
+        height: 80px;
 }
 
 @media screen and (max-width: 768px) {
@@ -228,6 +232,6 @@ body {
     .work-name { font-size: 1rem !important; text-align: left !important; }
     .work-category { font-size: 0.6rem !important; text-align: left !important; }
    .logo-img {
-        height: 50px;
+        height: 80px;
 }
 
