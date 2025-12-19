@@ -132,66 +132,75 @@ body {
 /* ============================================================
    3. 各セクション設定 (Hero, Topics, Works)
    ============================================================ */
-
-/* HERO */
 .hero {
-    position: relative;
-    width: 100%; height: 100vh;
-    overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-}
-.hero video {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-.hero::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
-    z-index: 2;
-}
-.hero-content { position: relative; z-index: 3; text-align: center; }
-.hero-content h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 900;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-}
-.hero-content p {
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
-    letter-spacing: 0.3em;
-    color: rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
 }
 
-/* TOPICS */
-.section { padding: 100px 0; }
+.hero video {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.6; /* 動画を少し暗くして文字を浮かせる */
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.8) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    letter-spacing: 0.5em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* TOPICSセクションの崩れ防止 */
+.topics-section {
+    padding: 120px 0;
+    background: #000;
+}
+
+/* WORKSページ等と干渉しないよう共通タイトルを設定 */
 .section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 50px;
-    letter-spacing: 0.1em;
-    border-left: 5px solid #ff004c;
-    padding-left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 50px;
+    border-left: 8px solid #ff004c;
+    padding-left: 20px;
 }
-.topics-list { border-top: 1px solid rgba(255, 255, 255, 0.1); }
-.topics-item {
-    display: flex; align-items: center;
-    padding: 25px 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    text-decoration: none;
-    transition: 0.3s;
+
+.topics-list {
+    max-width: 900px;
+    margin: 0 auto 40px;
 }
-.topics-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); width: 120px; }
-.topics-content { font-size: 1rem; color: #fff; flex: 1; }
-.topics-item:hover { background: rgba(255,255,255,0.05); padding-left: 20px; }
 
 /* WORKS */
 .works-section { padding: 120px 0 100px; }
