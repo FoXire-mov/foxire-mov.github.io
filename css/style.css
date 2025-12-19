@@ -238,17 +238,56 @@ body {
 }
 .load-more-btn:hover { background: #fff; color: #000; }
 
-/* About Page Styles */
+/* --- ABOUTページ専用の調整 --- */
+
+/* リード文のスマホ改行対策 */
 .section-lead {
     text-align: center;
-    margin-bottom: 60px;
-    color: #ccc;
+    margin: 0 auto 60px;
+    max-width: 800px;
+    line-height: 1.8;
+    padding: 0 20px;
     font-size: 1.1rem;
+    word-break: auto-phrase; /* 文脈でいい感じに改行 */
 }
 
+@media (max-width: 768px) {
+    .section-lead {
+        font-size: 0.9rem;
+        text-align: left; /* スマホは左寄せが読みやすい */
+    }
+}
+
+/* 巨大化したXアイコンを小さくする */
+.member-sns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.member-sns-link {
+    display: block;
+    width: 24px;  /* ここで枠のサイズを指定 */
+    height: 24px;
+}
+
+.member-sns-link img {
+    width: 100% !important;  /* 親の24pxに合わせる */
+    height: 100% !important;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* 白抜きにする */
+    transition: transform 0.3s ease;
+}
+
+.member-sns-link:hover img {
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+/* お二人のカードを横並びにする設定 */
 .creator-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* 横に2等分 */
     gap: 40px;
     margin-bottom: 80px;
 }
@@ -258,105 +297,15 @@ body {
     border: 1px solid #333;
     border-radius: 20px;
     padding: 40px;
-    transition: transform 0.3s ease;
-}
-
-.creator-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.creator-icon {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 30px;
-}
-
-.creator-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #fff;
-}
-
-.creator-info {
     text-align: center;
 }
 
-.member-name {
-    font-size: 1.8rem;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 5px;
-}
-
-.member-role {
-    color: #888;
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-.member-desc {
-    text-align: left;
-    margin-bottom: 30px;
-    line-height: 1.8;
-    font-size: 0.95rem;
-}
-
-.member-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-}
-
-.member-skills span {
-    background: #fff;
-    color: #000;
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-/* History */
-.history-block {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px;
-    border-top: 1px solid #333;
-}
-
-.sub-title {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 30px;
-}
-
-.history-list dt {
-    color: #888;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.history-list dd {
-    margin-bottom: 20px;
-    padding-left: 0;
-    font-size: 1rem;
-}
-
-/* Responsive */
+/* スマホでは縦1列にする */
 @media (max-width: 850px) {
     .creator-grid {
         grid-template-columns: 1fr;
     }
 }
-
 
 /* ============================================================
    5. レスポンシブ
