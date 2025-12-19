@@ -97,12 +97,11 @@ body {
 .hero-content { position: relative; z-index: 3; text-align: center; }
 .hero-content h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; letter-spacing: 0.2em; }
 .hero-content p { font-size: clamp(0.8rem, 2vw, 1.1rem); letter-spacing: 0.4em; color: rgba(255,255,255,0.7); }
-
+/* --- TOPICSセクションの背景と文字色 --- */
 .topics-section { 
-   padding: 120px 0; background: #000;
-   background-color: #ffffff; /* 背景を白に */
-   color: #1a1a1a;           /* 全体の文字色を濃いグレー（または黒）に */
-   padding: 120px 0;
+   background-color: #ffffff;
+    color: #1a1a1a;
+    padding: 100px 0;
 }
 .section-title {
     font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem);
@@ -110,31 +109,49 @@ body {
    color: #1a1a1a;           /* タイトルを黒に */
    
 }
-.topics-list { max-width: 900px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); }
-.topics-item {
-    display: flex; align-items: center; padding: 25px 10px;
-    border-bottom: 1px solid #eeeeee; /* 境界線を薄いグレーに */
-   text-decoration: none; 
-   transition: 0.3s;
-    color: #333333;                   /* 記事タイトルの色 */
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+/* --- TOPICSリストのスクロール設定 --- */
+.topics-list {
+    max-height: 450px;    /* 表示する高さ（記事数に合わせて調整してください） */
+    overflow-y: auto;     /* 縦スクロールを有効に */
+    padding-right: 15px;  /* スクロールバーとの隙間 */
+    border-top: 1px solid #eeeeee;
+    margin-bottom: 40px;
+    
+    /* スクロールバーのカスタマイズ */
+    scrollbar-width: thin;
+    scrollbar-color: #1a1a1a #f1f1f1;
 }
+/* Chrome, Safari用スクロールバー */
+.topics-list::-webkit-scrollbar {
+    width: 5px;
+}
+.topics-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.topics-list::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+.topics-item {
+　　display: flex;
+    padding: 25px 10px;
+    border-bottom: 1px solid #eeeeee;
+    text-decoration: none;
+    color: #333333;
+    transition: all 0.3s ease;
+}
+
 .topics-item:hover { 
    background-color: #f9f9f9;
-    padding-left: 10px; 
+    padding-left: 20px; 
 }
 
 .topics-date { 
-   font-size: 0.8rem;
-   color: #888888; /* 日付は少し薄めのグレーに */
-   width: 120px; }
-
-/* カミングスーン用のスタイル */
-.topics-item.coming-soon {
-    cursor: default; /* カーソルを指マークにしない */
-    opacity: 0.6;    /* 少し薄くする */
-}
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    width: 120px;
+    color: #888;
 
 .topics-item.coming-soon:hover {
     background: transparent; /* ホバーしても背景を変えない */
@@ -142,16 +159,31 @@ body {
     background-color: #fafafa;
     border-bottom: 1px dashed #cccccc;
 }
-
+   
+.view-more-container {
+    text-align: center;
+}
 /* 共通ボタン */
 .view-more {
-    display: inline-block; color: #1a1a1a; text-decoration: none; font-size: 0.8rem;
-    letter-spacing: 0.2em; border: 1px solid #1a1a1a; padding: 12px 40px; transition: 0.3s;
+display: inline-block;
+    padding: 15px 50px;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
 }
 .view-more:hover { 
     background: #1a1a1a;
     color: #ffffff; }
-
+/* カミングスーン用のスタイル */
+.topics-item.coming-soon {
+    cursor: default; /* カーソルを指マークにしない */
+    opacity: 0.6;    /* 少し薄くする */
+    pointer-events: none;
+}
 .logo {
     display: flex;
     align-items: center;
