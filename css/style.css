@@ -166,12 +166,12 @@ body {
 
 /* --- 閉じボタンに変形（activeクラスがついた時） --- */
 .menu-btn.active span:nth-child(1) {
-    top: 20px;
-    transform: rotate(45deg);
+    top: 20px !important;
+    transform: rotate(45deg) !important;
 }
 .menu-btn.active span:nth-child(2) {
-    top: 20px;
-    transform: rotate(-45deg);
+    top: 20px !important;
+    transform: rotate(-45deg) !important;
 }
 
 /* 全画面スマホメニュー */
