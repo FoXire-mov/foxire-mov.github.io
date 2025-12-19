@@ -15,6 +15,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
+    position: relative; /* 靄の効果を正しく配置するために必要 */
 }
 
 /* ============================================================
@@ -34,8 +35,16 @@ body {
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900;
-    color: #fff; text-decoration: none; letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 55px; /* PCでの推奨サイズ */
+    width: auto;
+    display: block;
+    transition: 0.3s;
 }
 
 /* PC用ナビゲーション */
@@ -67,7 +76,6 @@ body {
 .menu-btn.active span:nth-child(1) { top: 20px; transform: rotate(45deg); }
 .menu-btn.active span:nth-child(2) { top: 20px; transform: rotate(-45deg); }
 
-/* 全画面スマホメニュー本体 */
 .sp-nav {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background: #000; z-index: 9000; display: flex; flex-direction: column;
@@ -97,54 +105,61 @@ body {
 .hero-content { position: relative; z-index: 3; text-align: center; }
 .hero-content h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; letter-spacing: 0.2em; }
 .hero-content p { font-size: clamp(0.8rem, 2vw, 1.1rem); letter-spacing: 0.4em; color: rgba(255,255,255,0.7); }
-/* --- TOPICSセクションの背景と文字色 --- */
+
 .topics-section { 
-   background-color: #ffffff;
+    background-color: #ffffff;
     color: #1a1a1a;
     padding: 100px 0;
 }
 .section-title {
     font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 900; margin-bottom: 50px; border-left: 8px solid #ff004c; padding-left: 20px;
-   color: #1a1a1a;           /* タイトルを黒に */
-   
+    color: #1a1a1a;
 }
-/* --- TOPICSリストのスクロール設定 --- */
-.topics-list {
-    max-height: 450px;    /* 表示する高さ（記事数に合わせて調整してください） */
-    overflow-y: auto;     /* 縦スクロールを有効に */
-    padding-right: 15px;  /* スクロールバーとの隙間 */
-    border-top: 1px solid #eeeeee;
+
+/* TOPICSの靄（グラデーション）を配置するコンテナ */
+.topics-list-container {
+    position: relative;
     margin-bottom: 40px;
-    
-    /* スクロールバーのカスタマイズ */
+}
+
+/* 下側の靄 */
+.topics-list-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 80px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    pointer-events: none; z-index: 5;
+}
+
+.topics-list {
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 15px;
+    border-top: 1px solid #eeeeee;
     scrollbar-width: thin;
     scrollbar-color: #1a1a1a #f1f1f1;
 }
+
 /* Chrome, Safari用スクロールバー */
-.topics-list::-webkit-scrollbar {
-    width: 5px;
-}
-.topics-list::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-.topics-list::-webkit-scrollbar-thumb {
-    background: #1a1a1a;
-    border-radius: 10px;
-}
+.topics-list::-webkit-scrollbar { width: 5px; }
+.topics-list::-webkit-scrollbar-track { background: #f1f1f1; }
+.topics-list::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 10px; }
 
 .topics-item {
-　　display: flex;
-    padding: 25px 10px;
+    display: flex;
+    padding: 25px 15px;
     border-bottom: 1px solid #eeeeee;
     text-decoration: none;
     color: #333333;
     transition: all 0.3s ease;
+    background-color: transparent;
 }
 
 .topics-item:hover { 
-   background-color: #f9f9f9;
-    padding-left: 20px; 
+    background-color: #f9f9f9;
+    padding-left: 30px; /* ホバーで少しスライドさせる */
+    border-left: 4px solid #1a1a1a; /* 左側にラインを入れる */
 }
 
 .topics-date { 
@@ -152,20 +167,23 @@ body {
     font-weight: 700;
     width: 120px;
     color: #888;
+}
 
+/* カミングスーン設定 */
+.topics-item.coming-soon {
+    cursor: default;
+    opacity: 0.5;
+    pointer-events: none;
+}
 .topics-item.coming-soon:hover {
-    background: transparent; /* ホバーしても背景を変えない */
-    padding-left: 10px;      /* ホバーで動かないようにする */
-    background-color: #fafafa;
-    border-bottom: 1px dashed #cccccc;
+    padding-left: 15px;
+    background-color: transparent;
+    border-left: none;
 }
-   
-.view-more-container {
-    text-align: center;
-}
-/* 共通ボタン */
+
+.view-more-container { text-align: center; }
 .view-more {
-display: inline-block;
+    display: inline-block;
     padding: 15px 50px;
     border: 1px solid #1a1a1a;
     color: #1a1a1a;
@@ -177,62 +195,56 @@ display: inline-block;
 }
 .view-more:hover { 
     background: #1a1a1a;
-    color: #ffffff; }
-/* カミングスーン用のスタイル */
-.topics-item.coming-soon {
-    cursor: default; /* カーソルを指マークにしない */
-    opacity: 0.6;    /* 少し薄くする */
-    pointer-events: none;
-
-   /* カミングスーンのホバーは無効化 */
-.topics-item.coming-soon:hover {
-    padding-left: 15px; /* スライドさせない */
-    background-color: transparent;
-    border-left: none;
-}
-}
-.logo {
-    display: flex;
-    align-items: center;
-}
-.logo-img {
-    height: 80px;    /* ここで見た目の大きさを調整します */
-    width: auto;     /* 横幅は自動計算させて比率を維持 */
-    display: block;
+    color: #ffffff;
 }
 
 /* ============================================================
-   4. WORKS & フィルター (PCベース)
+   4. WORKS & フィルター
    ============================================================ */
 .works-section { padding: 120px 0 100px; }
 .page-title { font-size: clamp(2.5rem, 5vw, 4rem); text-align: center; margin-bottom: 60px; letter-spacing: 0.2em; }
 
 .filter-group { margin-bottom: 50px; text-align: center; }
-.filter-label { font-size: 0.6rem; color: rgba(255,255,255,0.4); margin: 20px 0 10px; letter-spacing: 0.3em; text-transform: uppercase; }
 .filter-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .filter-btn {
     background: none; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6);
-    padding: 6px 20px; font-size: 0.7rem; cursor: pointer; transition: 0.3s;
+    padding: 8px 25px; font-size: 0.75rem; cursor: pointer; transition: 0.3s;
 }
 .filter-btn.active, .filter-btn:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.1); }
 
 .works-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; /* PCは3列 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    padding: 20px 40px;
-    width: 100%; /* 横幅をいっぱいに広げる */
-    max-width: 1200px; /* containerに合わせる */
+    padding: 20px 0;
+    width: 100%;
     margin: 0 auto;
-    align-items: start;
 }
 
 .work-item { position: relative; width: 100%; }
 .work-item.is-hidden { display: none !important; }
 
-.work-thumbnail { position: relative; aspect-ratio: 16/9; overflow: hidden; background: #111; }
-.work-thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.work-thumbnail { 
+    position: relative; 
+    width: 100%;
+    padding-top: 56.25%; /* 16:9比率 */
+    overflow: hidden; 
+    background: #111; 
+}
+.work-thumbnail img { 
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%; 
+    object-fit: cover; 
+    transition: 0.5s; 
+}
 .work-item:hover img { transform: scale(1.05); }
+
+/* ショート動画用（縦長） */
+.work-thumbnail.is-vertical img {
+    object-fit: contain;
+    background: #000;
+}
 
 .work-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -251,50 +263,34 @@ display: inline-block;
 }
 .load-more-btn:hover { background: #fff; color: #000; }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* ============================================================
-   5. スマホ用レスポンシブ (768px以下)
+   5. レスポンシブ (768px以下)
    ============================================================ */
 @media screen and (max-width: 1024px) {
-    .works-grid {
-        grid-template-columns: repeat(2, 1fr) !important; /* タブレットは2列 */
-    }
-   .logo-img {
-        height: 80px;
-}
-
-@media screen and (max-width: 960px) {
-    .works-grid { grid-template-columns: repeat(2, 1fr) !important; }
-   .logo-img {
-        height: 80px;
+    .works-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media screen and (max-width: 768px) {
+    .container { padding: 0 20px; }
     .header-inner { padding: 0 20px; }
     .pc-nav { display: none !important; }
     .menu-btn { display: block !important; }
+    .logo-img { height: 40px; } /* スマホではロゴを小さく */
 
     .home-page .hero { height: 65vh; }
     .topics-section { padding: 80px 0; }
-    .section-title { font-size: 2.5rem; }
+    .section-title { font-size: 2.2rem; }
 
-    .works-grid { grid-template-columns: 1fr !important; gap: 20px; }
+    .works-grid { grid-template-columns: 1fr; gap: 20px; }
 
-    /* スマホ：オーバーレイを常時表示（下側に配置） */
+    /* スマホ：オーバーレイを常時表示 */
     .work-overlay {
-        opacity: 1 !important;
-        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%) !important;
-        justify-content: flex-end !important;
-        align-items: flex-start !important;
-        padding: 15px !important;
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 15px;
     }
-    .work-name { font-size: 1rem !important; text-align: left !important; }
-    .work-category { font-size: 0.6rem !important; text-align: left !important; }
-   .logo-img {
-        height: 80px;
+    .work-name { font-size: 1rem; text-align: left; }
+    .work-category { font-size: 0.6rem; text-align: left; }
 }
-
