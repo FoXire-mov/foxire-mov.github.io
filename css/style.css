@@ -274,3 +274,8 @@ body {
     .work-name { font-size: 1rem; text-align: left; }
     .work-category { font-size: 0.6rem; text-align: left; }
 }
+
+/* 最初は非表示にするためのクラス */
+.work-item.is-hidden {
+    display: none !important;
+}
