@@ -134,8 +134,13 @@ body {
 
 .works-grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 30px; padding: 0 20px;
+    grid-template-columns: repeat(3, 1fr) !important; /* PCは3列 */
+    gap: 30px;
+    padding: 20px 40px;
+    width: 100%; /* 横幅をいっぱいに広げる */
+    max-width: 1200px; /* containerに合わせる */
+    margin: 0 auto;
+    align-items: start;
 }
 
 .work-item { position: relative; width: 100%; }
@@ -170,6 +175,12 @@ body {
 /* ============================================================
    5. スマホ用レスポンシブ (768px以下)
    ============================================================ */
+@media screen and (max-width: 1024px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* タブレットは2列 */
+    }
+}
+
 @media screen and (max-width: 960px) {
     .works-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
