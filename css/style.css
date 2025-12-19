@@ -232,7 +232,7 @@ body {
 
 /* SNSエリア */
 .member-sns { display: flex; justify-content: center; margin-top: 10px; }
-.member-sns-link { display: inline-block; transition: 0.3s; }
+.member-sns-link { display: inline-block; transition: 0.3s; gap: 15px; /* アイコンの間の隙間 */}
 .member-sns-link:hover { transform: scale(1.1); }
 
 /* HISTORYセクション */
