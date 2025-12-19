@@ -165,31 +165,27 @@ body {
 }
 .work-item:hover .work-overlay { opacity: 1; }
 
-/* 作品名のリンクが紫にならないように固定 */
 .work-name {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 5px;
-    color: #fff !important; /* 訪問済みでも強制的に白 */
+    color: #fff !important;
     text-decoration: none;
 }
 
-/* カテゴリーの色も指定 */
 .work-category {
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.7) !important; /* 少し薄めの白 */
+    color: rgba(255, 255, 255, 0.7) !important;
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
-/* もし <a> タグで囲っているなら、その色も上書き */
 .work-item a {
     text-decoration: none !important;
     color: inherit !important;
 }
 
-/* 念のための追加：訪問済みリンクの色リセット */
 .work-item a:visited {
     color: #fff !important;
 }
@@ -210,7 +206,6 @@ body {
     border-radius: 20px; padding: 40px; text-align: center;
 }
 
-/* 顔写真の丸型固定 */
 .creator-icon img {
     width: 150px !important; height: 150px !important;
     border-radius: 50%; object-fit: cover;
@@ -221,7 +216,6 @@ body {
 .member-role { font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 20px; }
 .member-desc { font-size: 0.95rem; margin-bottom: 25px; color: #ccc; text-align: left; }
 
-/* スキルタグ */
 .member-skills {
     display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 25px;
 }
@@ -230,20 +224,42 @@ body {
     border-radius: 4px; font-size: 0.7rem; font-weight: 700;
 }
 
-/* SNSエリア */
-.member-sns { display: flex; justify-content: center; margin-top: 10px; gap: 15px; /* アイコンの間の隙間 */ }
-.member-sns-link { display: inline-block; transition: 0.3s;}
+/* SNSエリア：gapを正しく反映 */
+.member-sns { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    margin-top: 10px; 
+}
+.member-sns-link { display: inline-block; transition: 0.3s; }
 .member-sns-link:hover { transform: scale(1.1); }
 
-/* HISTORYセクション */
-.history-block { max-width: 700px; margin: 100px auto 0; }
+/* HISTORYセクション：中央寄せに修正 */
+.history-block { 
+    max-width: 500px; /* 横幅を絞って中央に集める */
+    margin: 100px auto 0; 
+}
 .sub-title { font-size: 1.5rem; text-align: center; margin-bottom: 40px; letter-spacing: 0.2em; }
-.history-list { display: grid; grid-template-columns: 100px 1fr; gap: 20px; }
-.history-list dt { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #888; }
-.history-list dd { margin-bottom: 15px; border-bottom: 1px solid #222; padding-bottom: 15px; }
+.history-list { 
+    display: grid; 
+    grid-template-columns: 100px 1fr; 
+    gap: 10px 20px; 
+}
+.history-list dt { 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700; 
+    color: #888; 
+    text-align: right; /* 日付を右寄せにして内容に近づける */
+}
+.history-list dd { 
+    margin-bottom: 15px; 
+    border-bottom: 1px solid #222; 
+    padding-bottom: 15px; 
+    text-align: left; /* 内容は左寄せ */
+}
 
 /* ============================================================
-   7. 共通：SNSアイコンの強制白抜き設定 (最優先)
+   7. 共通：SNSアイコンの設定
    ============================================================ */
 .sns-link img,
 .member-sns-link img {
@@ -253,7 +269,7 @@ body {
     filter: none !important;
     opacity: 1 !important;
     display: block !important;
-    margin: 0 auto;
+    margin: 0; /* center解除してgapに任せる */
     transition: 0.3s;
 }
 
@@ -288,7 +304,7 @@ body {
 }
 
 /* ============================================================
-   9. WORKS：もっと見るボタン (MORE VIEW)
+   9. WORKS：もっと見るボタン
    ============================================================ */
 .more-btn-container {
     text-align: center;
@@ -315,7 +331,6 @@ body {
     color: #000;
 }
 
-/* JSでボタンを消すためのクラス */
 .more-btn-container.is-hidden {
     display: none;
 }
