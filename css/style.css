@@ -1,3 +1,37 @@
+/* --- ヘッダー全体のデザイン --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2); /* ほんの少し暗くして視認性確保 */
+    backdrop-filter: blur(5px);   /* 背景を少しぼかすと高級感UP */
+}
+
+.header-inner {
+    width: 100%;
+    max-width: 1400px; /* 少し広めに設定 */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+/* ロゴの調整 */
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+}
+
 /* リセット・ベース設定 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -34,21 +68,23 @@ body {
 /* PC用ナビゲーションの調整 */
 .pc-nav ul {
     display: flex;
-    gap: 50px; /* 項目間の距離を広げる */
+    list-style: none;
+    gap: 40px; /* 項目間の距離 */
 }
 
 .pc-nav a {
-    font-size: 0.75rem; /* あえて小さく */
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7); /* 少し透けさせるのが今風 */
+    font-size: 0.75rem; /* 小さめがオシャレ */
     font-weight: 700;
-    letter-spacing: 0.3em; /* 文字の間隔を広げるのがコツ */
-    color: rgba(255, 255, 255, 0.7); /* 少し透けさせる */
+    letter-spacing: 0.3em; /* 文字の間隔を広く */
     text-transform: uppercase;
-    transition: all 0.4s ease;
+    transition: 0.4s ease;
     position: relative;
-    padding-bottom: 5px;
+    padding: 5px 0;
 }
 
-/* ホバー時に文字を白くし、下に線を出す演出 */
+/* ホバー時の演出：白くなって下に線が出る */
 .pc-nav a:hover {
     color: #fff;
 }
@@ -56,8 +92,10 @@ body {
 .pc-nav a::after {
     content: "";
     position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 1px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
     background: #fff;
     transition: 0.4s;
 }
