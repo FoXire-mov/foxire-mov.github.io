@@ -411,3 +411,51 @@ body {
         font-size: 2rem;
     }
 }
+
+    /* --- WORKSページ全体の修正 --- */
+.works-page .works-section {
+    padding-top: 100px; /* タイトルがヘッダーに被らないよう余白を確保 */
+}
+
+/* --- スマホ・タブレット用の強制調整 --- */
+@media screen and (max-width: 768px) {
+    /* 1. PCナビを確実に消す */
+    .pc-nav {
+        display: none !important;
+    }
+
+    /* 2. ハンバーガーボタンを確実に表示 */
+    .menu-btn {
+        display: block !important;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
+
+    /* 3. 作品タイトルのサイズ調整 */
+    .page-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 30px !important;
+        letter-spacing: 0.2em !important;
+    }
+
+    /* 4. 作品一覧の幅をスマホに最適化 */
+    .works-grid {
+        grid-template-columns: 1fr !important; /* 1列にする */
+        gap: 15px !important;
+        padding: 0 15px !important; /* 左右の余白を作る */
+    }
+
+    .work-item {
+        width: 100% !important;
+    }
+}
+
+/* --- PC・スマホ共通：画像がはみ出さない設定 --- */
+.work-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* 下の隙間を消す */
+}
