@@ -31,6 +31,42 @@ body {
 .pc-nav { display: block; }
 @media (max-width: 768px) { .pc-nav { display: none; } } /* スマホでは隠す */
 
+/* PC用ナビゲーションの調整 */
+.pc-nav ul {
+    display: flex;
+    gap: 50px; /* 項目間の距離を広げる */
+}
+
+.pc-nav a {
+    font-size: 0.75rem; /* あえて小さく */
+    font-weight: 700;
+    letter-spacing: 0.3em; /* 文字の間隔を広げるのがコツ */
+    color: rgba(255, 255, 255, 0.7); /* 少し透けさせる */
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* ホバー時に文字を白くし、下に線を出す演出 */
+.pc-nav a:hover {
+    color: #fff;
+}
+
+.pc-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: #fff;
+    transition: 0.4s;
+}
+
+.pc-nav a:hover::after {
+    width: 100%;
+}
+
+
 /* メニューボタン（ハンバーガー） */
 .menu-btn {
     display: none;
