@@ -220,6 +220,24 @@ body {
 .work-item:hover .work-overlay { opacity: 1; }
 .work-item:hover img { transform: scale(1.05); }
 
+/* viewALL */
+
+.view-more {
+    display: inline-block;
+    margin-top: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    border: 1px solid #fff;
+    padding: 10px 40px;
+    transition: 0.3s;
+}
+.view-more:hover {
+    background: #fff;
+    color: #000;
+}
+
 /* ============================================================
    4. スマホ用レスポンシブ (Mobile Adjustments)
    ============================================================ */
