@@ -30,6 +30,7 @@ body {
     align-items: center;
     background: rgba(0, 0, 0, 0.8); /* 視認性のため少し濃いめに */
     backdrop-filter: blur(10px);
+   
 }
 
 .header-inner {
