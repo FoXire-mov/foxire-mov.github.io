@@ -277,9 +277,9 @@ body {
     min-width: 24px !important;
     max-width: 24px !important;
     object-fit: contain !important;
-    /* 黒い画像を白く塗りつぶす設定 */
+    /* 黒い画像を白く塗りつぶす設定 
     filter: brightness(0) invert(1) !important; 
-    opacity: 1 !important; /* 透明になっていないか確認 */
+    opacity: 1 !important;  透明になっていないか確認 */
     display: block !important;
     margin: 0 auto;
 }
