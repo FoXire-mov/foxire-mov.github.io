@@ -312,46 +312,55 @@ body {
 
 
     /* --- WORKS PAGE --- */
-.works-section {
-    padding: 150px 0 100px;
+    /* WORKSページ全体の背景を黒に固定 */
+.works-page {
     background-color: #000;
-    min-height: 100vh;
+    color: #fff;
+}
+/* WORKSセクションの調整 */
+.works-section {
+    padding-top: 120px; /* ヘッダーの高さ分、上に余白を空ける */
+    padding-bottom: 100px;
 }
 
+/* タイトルの調整 */
 .page-title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3.5rem); /* 画面サイズで可変 */
     letter-spacing: 0.3em;
     text-align: center;
     margin-bottom: 60px;
-    color: #fff;
+    font-weight: 900;
 }
 
 /* グリッドレイアウト：PCでは3列、スマホでは1列 */
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
+    /* PCは3列、タブレットは2列、スマホは1列に自動調整 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
-.work-item a {
-    text-decoration: none;
-    display: block;
-    overflow: hidden;
+.work-item {
+    width: 100%;
 }
 
 .work-thumbnail {
     position: relative;
-    aspect-ratio: 16 / 9; /* 映像の比率を維持 */
-    background-color: #111;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 境目を少し見せる */
 }
 
 .work-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
 /* ホバー時のオーバーレイ（暗くなる膜） */
