@@ -157,14 +157,14 @@ body {
 }
 .hero-content { position: relative; z-index: 3; text-align: center; }
 .hero-content h1 {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 900;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
 }
 .hero-content p {
-    font-size: 1.2rem;
-    letter-spacing: 0.5em;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    letter-spacing: 0.3em;
     color: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
 }
@@ -233,4 +233,24 @@ body {
     
     .works-section { padding-top: 100px; }
     .works-grid { grid-template-columns: 1fr; }
+}
+/* スマホ（768px以下）の時だけ、オーバーレイを常に表示 */
+@media screen and (max-width: 768px) {
+    .work-overlay {
+        opacity: 1 !important; /* 常に表示 */
+        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent) !important; /* 下からじわっと暗くする */
+        justify-content: flex-end !important; /* 文字を下に配置 */
+        padding-bottom: 15px !important;
+    }
+
+    .work-name {
+        font-size: 1rem !important;
+        color: #fff !important; /* 文字色は白 */
+    }
+
+    .work-category {
+        font-size: 0.6rem !important;
+        color: #fff !important;
+        margin-bottom: 5px !important;
+    }
 }
