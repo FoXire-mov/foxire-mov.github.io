@@ -4,9 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuBtn && spNav) {
         menuBtn.addEventListener('click', () => {
-            console.log('Button clicked!'); // 動作確認用
+            // クラスの付け外し
             menuBtn.classList.toggle('active');
             spNav.classList.toggle('active');
+            
+            // 開いている時はスクロール不可にする（お好みで）
+            if (spNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
         });
 
         // メニュー内のリンクをクリックしたら閉じる
@@ -15,9 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 menuBtn.classList.remove('active');
                 spNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
         });
-    } else {
-        console.error('Menu elements not found!');
     }
 });
