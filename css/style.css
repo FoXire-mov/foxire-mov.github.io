@@ -104,6 +104,27 @@ body {
     width: 100%;
 }
 
+/* --- レスポンシブ設定：スマホではPCナビを消してボタンを出す --- */
+@media (max-width: 768px) {
+    .pc-nav {
+        display: none; /* スマホではPCナビを非表示 */
+    }
+
+    .menu-btn {
+        display: block; /* スマホでボタンを表示 */
+    }
+    
+    .header-inner {
+        padding: 0 20px;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-btn {
+        display: none; /* PCではハンバーガーボタンを非表示 */
+    }
+}
+
 
 /* メニューボタン（ハンバーガー） */
 .menu-btn {
