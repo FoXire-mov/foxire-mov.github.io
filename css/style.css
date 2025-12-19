@@ -28,9 +28,8 @@ body {
     z-index: 1000;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.8); /* 視認性のため少し濃いめに */
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
-   
 }
 
 .header-inner {
@@ -53,12 +52,7 @@ body {
 }
 
 /* PC用ナビゲーション */
-.pc-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-}
-
+.pc-nav ul { display: flex; list-style: none; gap: 40px; }
 .pc-nav a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
@@ -70,7 +64,6 @@ body {
     position: relative;
     padding: 5px 0;
 }
-
 .pc-nav a:hover { color: #fff; }
 .pc-nav a::after {
     content: "";
@@ -82,7 +75,7 @@ body {
 }
 .pc-nav a:hover::after { width: 100%; }
 
-/* ハンバーガーボタン (PCでは隠す) */
+/* ハンバーガーボタン (スマホ用) */
 .menu-btn {
     display: none;
     width: 40px; height: 40px;
@@ -93,7 +86,6 @@ body {
     z-index: 9999;
     cursor: pointer;
 }
-
 .menu-btn span {
     display: block;
     width: 30px; height: 1px;
@@ -104,12 +96,10 @@ body {
 }
 .menu-btn span:nth-child(1) { top: 16px; }
 .menu-btn span:nth-child(2) { top: 24px; }
-
-/* 閉じボタン変形 */
 .menu-btn.active span:nth-child(1) { top: 20px; transform: rotate(45deg); }
 .menu-btn.active span:nth-child(2) { top: 20px; transform: rotate(-45deg); }
 
-/* 全画面スマホメニュー */
+/* 全画面スマホメニュー本体 */
 .sp-nav {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100vh;
@@ -130,7 +120,7 @@ body {
 }
 
 /* ============================================================
-   3. 各セクション設定 (Hero, Topics, Works)
+   3. メインコンテンツパーツ
    ============================================================ */
 
 /* HERO */
@@ -151,8 +141,7 @@ body {
 .hero::after {
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
     z-index: 2;
 }
@@ -167,10 +156,9 @@ body {
     font-size: clamp(0.9rem, 2vw, 1.2rem);
     letter-spacing: 0.3em;
     color: rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
 }
 
-/* TOPICS */
+/* TOPICS / 通用セクション */
 .section { padding: 100px 0; }
 .section-title {
     font-family: 'Montserrat', sans-serif;
@@ -193,36 +181,7 @@ body {
 .topics-content { font-size: 1rem; color: #fff; flex: 1; }
 .topics-item:hover { background: rgba(255,255,255,0.05); padding-left: 20px; }
 
-/* WORKS */
-.works-section { padding: 120px 0 100px; }
-.page-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: 0.3em;
-    text-align: center;
-    margin-bottom: 60px;
-}
-.works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 0 20px;
-}
-.work-thumbnail {
-    position: relative; aspect-ratio: 16/9;
-    overflow: hidden; background: #111;
-}
-.work-thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.work-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    opacity: 0; transition: 0.4s; padding: 20px;
-}
-.work-item:hover .work-overlay { opacity: 1; }
-.work-item:hover img { transform: scale(1.05); }
-
-/* viewALL */
-
+/* 汎用ボタン (VIEW ALL等) */
 .view-more {
     display: inline-block;
     margin-top: 30px;
@@ -234,117 +193,8 @@ body {
     padding: 10px 40px;
     transition: 0.3s;
 }
-.view-more:hover {
-    background: #fff;
-    color: #000;
-}
-
-/* --- フィルターエリア --- */
-.filter-group {
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.filter-label {
-    font-size: 0.6rem;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 0.3em;
-    margin-bottom: 10px;
-    margin-top: 25px;
-    text-transform: uppercase;
-}
-
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.6);
-    padding: 6px 20px;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.filter-btn.active, .filter-btn:hover {
-    border-color: #fff;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* --- MORE VIEW機能 --- */
-.work-item.is-hidden {
-    display: none;
-}
-
-.more-btn-container {
-    text-align: center;
-    margin-top: 60px;
-}
-
-.load-more-btn {
-    background: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 15px 60px;
-    font-size: 0.8rem;
-    letter-spacing: 0.3em;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.load-more-btn:hover {
-    background: #fff;
-    color: #000;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+.view-more:hover { background: #fff; color: #000; }
 
 /* ============================================================
-   4. スマホ用レスポンシブ (Mobile Adjustments)
+   4. WORKS & フィルター機能
    ============================================================ */
-@media screen and (max-width: 768px) {
-    /* ヘッダー・ナビ周り */
-    .header-inner { padding: 0 20px; }
-    .pc-nav { display: none !important; }
-    .menu-btn { display: block !important; }
-    
-    /* トップページ（Hero） */
-    .hero { height: 65vh; }
-    .section-title { font-size: 2.5rem; }
-    
-    /* WORKSページ全体 */
-    .works-section { padding-top: 100px; }
-    .works-grid { 
-        grid-template-columns: 1fr; 
-        gap: 15px;
-    }
-
-    /* WORKS：スマホでは文字を常に下に表示 */
-    .work-overlay {
-        opacity: 1 !important;
-        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%) !important;
-        justify-content: flex-end !important;
-        padding-bottom: 15px !important;
-    }
-
-    .work-name {
-        font-size: 1rem !important;
-        color: #fff !important;
-    }
-
-    .work-category {
-        font-size: 0.6rem !important;
-        color: #fff !important;
-        margin-bottom: 5px !important;
-    }
-}
