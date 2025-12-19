@@ -129,31 +129,49 @@ body {
 /* メニューボタン（ハンバーガー） */
 .menu-btn {
     display: none;
-    width: 40px; height: 40px;
-    background: none; border: none;
-    position: relative; z-index: 2000; /* メニューより上に配置 */
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 2000;
     cursor: pointer;
+    padding: 0; /* 余計な隙間を排除 */
 }
-@media (max-width: 768px) { .menu-btn { display: block; } }
+
+/* スマホ表示（768px以下）の時にボタンを出す */
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+}
 
 .menu-btn span {
-    display: block; width: 30px; height: 1px;
-    background: #fff; position: absolute; 
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: #fff;
+    position: absolute;
     left: 5px;
-    transition: transform 0.4s, top 0.4s; /* アニメーションを滑らかに */
+    transition: transform 0.4s ease, top 0.4s ease;
 }
-.menu-btn span:nth-child(1) { top: 15px; }
-.menu-btn span:nth-child(2) { top: 25px; }
+
+/* 1本目と2本目の初期位置 */
+.menu-btn span:nth-child(1) {
+    top: 16px;
+}
+.menu-btn span:nth-child(2) {
+    top: 24px;
+}
 
 /* --- 閉じボタンに変形（activeクラスがついた時） --- */
 .menu-btn.active span:nth-child(1) {
     top: 20px;
-    transform: rotate(45deg); /* 45度回転 */
+    transform: rotate(45deg);
 }
-
 .menu-btn.active span:nth-child(2) {
     top: 20px;
-    transform: rotate(-45deg); /* 逆向きに45度回転 */
+    transform: rotate(-45deg);
 }
 
 /* 全画面スマホメニュー */
