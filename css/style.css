@@ -272,11 +272,16 @@ body {
 }
 
 .member-sns-link img {
-    width: 100% !important;  /* 親の24pxに合わせる */
-    height: 100% !important;
-    object-fit: contain;
-   /* filter: brightness(0) invert(1);  白抜きにする */
-    transition: transform 0.3s ease;
+　　width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+    object-fit: contain !important;
+    /* 黒い画像を白く塗りつぶす設定 */
+    filter: brightness(0) invert(1) !important; 
+    opacity: 1 !important; /* 透明になっていないか確認 */
+    display: block !important;
+    margin: 0 auto;
 }
 
 .member-sns-link:hover img {
