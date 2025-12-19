@@ -15,7 +15,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
-    position: relative; /* 靄の効果を正しく配置するために必要 */
 }
 
 /* ============================================================
@@ -41,7 +40,7 @@ body {
 }
 
 .logo-img {
-    height: 55px; /* PCでの推奨サイズ */
+    height: 55px;
     width: auto;
     display: block;
     transition: 0.3s;
@@ -117,26 +116,12 @@ body {
     color: #1a1a1a;
 }
 
-/* TOPICSの靄（グラデーション）を配置するコンテナ */
-.topics-list-container {
-    position: relative;
-    margin-bottom: 40px;
-}
-
-/* 下側の靄 */
-.topics-list-container::after {
-    content: "";
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 80px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-    pointer-events: none; z-index: 5;
-}
-
 .topics-list {
     max-height: 450px;
     overflow-y: auto;
     padding-right: 15px;
     border-top: 1px solid #eeeeee;
+    margin-bottom: 40px; /* 下部との間隔 */
     scrollbar-width: thin;
     scrollbar-color: #1a1a1a #f1f1f1;
 }
@@ -154,13 +139,13 @@ body {
     color: #333333;
     transition: all 0.3s ease;
     background-color: transparent;
-    box-sizing: border-box; /* パディング変更時のサイズ固定 */
+    box-sizing: border-box;
 }
 
 .topics-item:hover { 
     background-color: #f9f9f9;
-    padding-left: 30px; /* ホバーで少しスライドさせる */
-    border-left: 4px solid #1a1a1a; /* 左側にラインを入れる */
+    padding-left: 30px;
+    border-left: 4px solid #1a1a1a;
 }
 
 .topics-date { 
@@ -168,18 +153,13 @@ body {
     font-weight: 700;
     width: 120px;
     color: #888;
-} /* ← ここを修正しました */
+}
 
 /* カミングスーン設定 */
 .topics-item.coming-soon {
     cursor: default;
-    opacity: 0.5;
+    opacity: 0.7;
     pointer-events: none;
-}
-.topics-item.coming-soon:hover {
-    padding-left: 15px;
-    background-color: transparent;
-    border-left: none;
 }
 
 .view-more-container { text-align: center; }
@@ -228,7 +208,7 @@ body {
 .work-thumbnail { 
     position: relative; 
     width: 100%;
-    padding-top: 56.25%; /* 16:9比率 */
+    padding-top: 56.25%;
     overflow: hidden; 
     background: #111; 
 }
@@ -276,7 +256,7 @@ body {
     .header-inner { padding: 0 20px; }
     .pc-nav { display: none !important; }
     .menu-btn { display: block !important; }
-    .logo-img { height: 40px; } /* スマホではロゴを小さく */
+    .logo-img { height: 40px; }
 
     .home-page .hero { height: 65vh; }
     .topics-section { padding: 80px 0; }
@@ -284,7 +264,6 @@ body {
 
     .works-grid { grid-template-columns: 1fr; gap: 20px; }
 
-    /* スマホ：オーバーレイを常時表示 */
     .work-overlay {
         opacity: 1;
         background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
