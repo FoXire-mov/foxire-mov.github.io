@@ -97,18 +97,37 @@ body {
 .hero-content h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; letter-spacing: 0.2em; }
 .hero-content p { font-size: clamp(0.8rem, 2vw, 1.1rem); letter-spacing: 0.4em; color: rgba(255,255,255,0.7); }
 
-.topics-section { padding: 120px 0; background: #000; }
+.topics-section { 
+   padding: 120px 0; background: #000;
+   background-color: #ffffff; /* 背景を白に */
+   color: #1a1a1a;           /* 全体の文字色を濃いグレー（または黒）に */
+   padding: 120px 0;
+}
 .section-title {
     font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 900; margin-bottom: 50px; border-left: 8px solid #ff004c; padding-left: 20px;
+   color: #1a1a1a;           /* タイトルを黒に */
+   
 }
 .topics-list { max-width: 900px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); }
 .topics-item {
     display: flex; align-items: center; padding: 25px 10px;
-    border-bottom: 1px solid rgba(255,255,255,0.1); text-decoration: none; transition: 0.3s;
+    border-bottom: 1px solid #eeeeee; /* 境界線を薄いグレーに */
+   text-decoration: none; 
+   transition: 0.3s;
+    color: #333333;                   /* 記事タイトルの色 */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
-.topics-item:hover { background: rgba(255,255,255,0.05); padding-left: 20px; }
-.topics-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); width: 120px; }
+.topics-item:hover { 
+   background-color: #f9f9f9;
+    padding-left: 10px; 
+}
+
+.topics-date { 
+   font-size: 0.8rem;
+   color: #888888; /* 日付は少し薄めのグレーに */
+   width: 120px; }
 
 /* カミングスーン用のスタイル */
 .topics-item.coming-soon {
@@ -119,14 +138,18 @@ body {
 .topics-item.coming-soon:hover {
     background: transparent; /* ホバーしても背景を変えない */
     padding-left: 10px;      /* ホバーで動かないようにする */
+    background-color: #fafafa;
+    border-bottom: 1px dashed #cccccc;
 }
 
 /* 共通ボタン */
 .view-more {
-    display: inline-block; color: #fff; text-decoration: none; font-size: 0.8rem;
-    letter-spacing: 0.2em; border: 1px solid #fff; padding: 12px 40px; transition: 0.3s;
+    display: inline-block; color: #1a1a1a; text-decoration: none; font-size: 0.8rem;
+    letter-spacing: 0.2em; border: 1px solid #1a1a1a; padding: 12px 40px; transition: 0.3s;
 }
-.view-more:hover { background: #fff; color: #000; }
+.view-more:hover { 
+    background: #1a1a1a;
+    color: #ffffff; }
 
 .logo {
     display: flex;
