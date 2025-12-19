@@ -133,7 +133,7 @@ body {
     height: 40px;
     background: none;
     border: none;
-    position: relative;
+    position: fixed;
     z-index: 2000;
     cursor: pointer;
     padding: 0; /* 余計な隙間を排除 */
