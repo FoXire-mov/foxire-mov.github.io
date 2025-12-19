@@ -267,3 +267,45 @@ body {
     color: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
 }
+
+/* TOPICSセクション全体 */
+.topics-list {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* 上に細い線 */
+}
+
+.topics-item {
+    display: flex;
+    align-items: center;
+    padding: 25px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 下に細い線 */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* 日付の部分 */
+.topics-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    width: 120px; /* 日付の幅を固定して揃える */
+    letter-spacing: 0.1em;
+}
+
+/* 内容の部分 */
+.topics-content {
+    font-size: 1rem;
+    color: #fff;
+    flex: 1; /* 残りの幅をすべて使う */
+    letter-spacing: 0.05em;
+}
+
+/* ホバーした時 */
+.topics-item:hover {
+    background: rgba(255, 255, 255, 0.05); /* ほんのり背景色 */
+    padding-left: 20px; /* 少し右にずれる動き */
+}
+
+.topics-item:hover .topics-content {
+    color: #ff0050; /* ブランドカラーなどがあれば、その色に変えるとかっこいい */
+}
