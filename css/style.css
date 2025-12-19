@@ -200,7 +200,9 @@ body {
 /* スマホ用の調整（画面幅768px以下） */
 @media (max-width: 768px) {
     .hero {
-        height: 60vh; /* スマホでは少し高さを抑えて「横長感」を出す */
+        /* 100vh（全画面）ではなく、画面の65%くらいの高さにする */
+        height: 65vh; 
+        min-height: 350px; /* 小さくなりすぎないように */
     }
     
     .hero video {
