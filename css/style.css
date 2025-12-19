@@ -1,20 +1,40 @@
-/* --- ヘッダー全体のデザイン --- */
+/* ============================================================
+   1. 基本設定 (Reset & Base)
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ============================================================
+   2. ヘッダー & ナビゲーション
+   ============================================================ */
 .site-header {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     height: 80px;
     z-index: 1000;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.2); /* ほんの少し暗くして視認性確保 */
-    backdrop-filter: blur(5px);   /* 背景を少しぼかすと高級感UP */
+    background: rgba(0, 0, 0, 0.8); /* 視認性のため少し濃いめに */
+    backdrop-filter: blur(10px);
 }
 
 .header-inner {
     width: 100%;
-    max-width: 1400px; /* 少し広めに設定 */
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -22,7 +42,6 @@
     padding: 0 40px;
 }
 
-/* ロゴの調整 */
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
@@ -32,210 +51,102 @@
     letter-spacing: 0.2em;
 }
 
-/* リセット・ベース設定 */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* 共通コンテナ */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.section { padding: 100px 0; }
-
-.section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 50px;
-    letter-spacing: 0.1em;
-    border-left: 5px solid #ff004c; /* OTOIRO風アクセント */
-    padding-left: 20px;
-}
-
-/* PCナビの基本設定 */
-.pc-nav { display: block; }
-@media (max-width: 768px) { .pc-nav { display: none; } } /* スマホでは隠す */
-
-/* PC用ナビゲーションの調整 */
+/* PC用ナビゲーション */
 .pc-nav ul {
     display: flex;
     list-style: none;
-    gap: 40px; /* 項目間の距離 */
+    gap: 40px;
 }
 
 .pc-nav a {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.7); /* 少し透けさせるのが今風 */
-    font-size: 0.75rem; /* 小さめがオシャレ */
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.3em; /* 文字の間隔を広く */
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     transition: 0.4s ease;
     position: relative;
     padding: 5px 0;
 }
 
-/* ホバー時の演出：白くなって下に線が出る */
-.pc-nav a:hover {
-    color: #fff;
-}
-
+.pc-nav a:hover { color: #fff; }
 .pc-nav a::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
     background: #fff;
     transition: 0.4s;
 }
+.pc-nav a:hover::after { width: 100%; }
 
-.pc-nav a:hover::after {
-    width: 100%;
-}
-
-/* --- レスポンシブ設定：スマホではPCナビを消してボタンを出す --- */
-@media (max-width: 768px) {
-    .pc-nav {
-        display: none; /* スマホではPCナビを非表示 */
-    }
-
-    .menu-btn {
-        display: block; /* スマホでボタンを表示 */
-    }
-    
-    .header-inner {
-        padding: 0 20px;
-    }
-}
-
-@media (min-width: 769px) {
-    .menu-btn {
-        display: none; /* PCではハンバーガーボタンを非表示 */
-    }
-}
-
-
-/* --- メニューボタン（ハンバーガー） --- */
+/* ハンバーガーボタン (PCでは隠す) */
 .menu-btn {
     display: none;
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     background: transparent;
     border: none;
-    position: fixed; /* absoluteから変更：スクロールしてもついてくる */
-    top: 20px;
-    right: 20px;
-    z-index: 9999; /* どんな要素よりも上に配置 */
+    position: fixed;
+    top: 20px; right: 20px;
+    z-index: 9999;
     cursor: pointer;
-    padding: 0;
-}
-
-@media (max-width: 768px) {
-    .menu-btn {
-        display: block; /* スマホの時だけ表示 */
-    }
 }
 
 .menu-btn span {
     display: block;
-    width: 30px;
-    height: 1px;
+    width: 30px; height: 1px;
     background: #fff;
     position: absolute;
     left: 5px;
-    transition: all 0.4s ease; /* 変化をすべてアニメーションに */
+    transition: all 0.4s ease;
 }
-
-/* 通常時の2本線の位置 */
 .menu-btn span:nth-child(1) { top: 16px; }
 .menu-btn span:nth-child(2) { top: 24px; }
 
-/* --- 閉じボタン（activeクラスがついた時） --- */
-/* 強制的に上書きするために「.active」の記述を具体的に書きます */
-.menu-btn.active span:nth-child(1) {
-    top: 20px !important;
-    transform: rotate(45deg) !important;
-}
-
-.menu-btn.active span:nth-child(2) {
-    top: 20px !important;
-    transform: rotate(-45deg) !important;
-}
+/* 閉じボタン変形 */
+.menu-btn.active span:nth-child(1) { top: 20px; transform: rotate(45deg); }
+.menu-btn.active span:nth-child(2) { top: 20px; transform: rotate(-45deg); }
 
 /* 全画面スマホメニュー */
 .sp-nav {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100vh;
-    background: #000; /* OTOIRO風の真っ黒背景 */
-    z-index: 1500;
+    background: #000;
+    z-index: 9000;
     display: flex; flex-direction: column;
     justify-content: center; align-items: center;
-    transform: translateY(-100%); /* 最初は上に隠しておく */
-    transition: transform 0.5s ease; /* ヌルッと動かす */
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
 }
-.sp-nav.active { transform: translateY(0); } /* activeクラスがついたら表示 */
-
-.sp-nav ul { list-style: none; text-align: center; padding: 0; }
+.sp-nav.active { transform: translateY(0); }
+.sp-nav ul { list-style: none; text-align: center; }
 .sp-nav ul li { margin: 30px 0; }
 .sp-nav ul a {
     color: #fff; text-decoration: none;
     font-size: 2rem; font-weight: 900;
     letter-spacing: 0.2em;
-    font-family: 'Montserrat', sans-serif;
-}
-.sp-nav-info {
-    position: absolute; bottom: 40px;
-    color: #666; font-size: 0.7rem; letter-spacing: 0.1em;
 }
 
-/* メインの動画エリア */
+/* ============================================================
+   3. 各セクション設定 (Hero, Topics, Works)
+   ============================================================ */
+
+/* HERO */
 .hero {
     position: relative;
-    width: 100%;
-    height: 100vh; /* PCでは全画面 */
+    width: 100%; height: 100vh;
     overflow: hidden;
-    display: flex;
-    align-items: center; /* 上下中央 */
-    justify-content: center; /* 左右中央 */
+    display: flex; align-items: center; justify-content: center;
 }
-
 .hero video {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    /* ここが重要！ */
-    object-fit: cover; 
-    z-index: 1; /* 一番下 */
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
-
-/* スマホ用の調整（画面幅768px以下） */
-@media (max-width: 768px) {
-    .hero {
-        /* 100vh（全画面）ではなく、画面の65%くらいの高さにする */
-        height: 65vh; 
-        min-height: 350px; /* 小さくなりすぎないように */
-    }
-    
-    .hero video {
-        /* スマホの縦長画面でも動画の「中央」がくるように調整 */
-        object-position: center center; 
-    }
-}
-/* ★ 動画を暗くするフィルター（オーバーレイ） */
 .hero::after {
     content: "";
     position: absolute;
@@ -244,23 +155,13 @@ body {
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
     z-index: 2;
 }
-/* 文字情報 */
-.hero-content {
-    position: relative;
-    z-index: 3; /* フィルターよりさらに上 */
-    text-align: center;
-
-    /* FoXire の文字（デカく、太く） */
+.hero-content { position: relative; z-index: 3; text-align: center; }
 .hero-content h1 {
-    font-size: clamp(3rem, 10vw, 6rem); /* 画面幅に合わせてサイズが自動調整される */
+    font-size: clamp(3rem, 10vw, 6rem);
     font-weight: 900;
     letter-spacing: 0.3em;
-    color: #fff;
-    margin-bottom: 10px;
     text-transform: uppercase;
 }
-
-/* Visualizing Your Sound. の文字 */
 .hero-content p {
     font-size: 1.2rem;
     letter-spacing: 0.5em;
@@ -268,194 +169,68 @@ body {
     text-transform: uppercase;
 }
 
-/* TOPICSセクション全体 */
-.topics-list {
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* 上に細い線 */
-}
-
-.topics-item {
-    display: flex;
-    align-items: center;
-    padding: 25px 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 下に細い線 */
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-/* 日付の部分 */
-.topics-date {
+/* TOPICS */
+.section { padding: 100px 0; }
+.section-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    width: 120px; /* 日付の幅を固定して揃える */
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 50px;
     letter-spacing: 0.1em;
+    border-left: 5px solid #ff004c;
+    padding-left: 20px;
 }
-
-/* 内容の部分 */
-.topics-content {
-    font-size: 1rem;
-    color: #fff;
-    flex: 1; /* 残りの幅をすべて使う */
-    letter-spacing: 0.05em;
+.topics-list { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.topics-item {
+    display: flex; align-items: center;
+    padding: 25px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: 0.3s;
 }
+.topics-date { font-size: 0.8rem; color: rgba(255,255,255,0.5); width: 120px; }
+.topics-content { font-size: 1rem; color: #fff; flex: 1; }
+.topics-item:hover { background: rgba(255,255,255,0.05); padding-left: 20px; }
 
-/* ホバーした時 */
-.topics-item:hover {
-    background: rgba(255, 255, 255, 0.05); /* ほんのり背景色 */
-    padding-left: 20px; /* 少し右にずれる動き */
-}
-
-.topics-item:hover .topics-content {
-    color: #ff0050; /* ブランドカラーなどがあれば、その色に変えるとかっこいい */
-}
-
-
-    /* --- WORKS PAGE --- */
-    /* WORKSページ全体の背景を黒に固定 */
-.works-page {
-    background-color: #000;
-    color: #fff;
-}
-/* WORKSセクションの調整 */
-.works-section {
-    padding-top: 120px; /* ヘッダーの高さ分、上に余白を空ける */
-    padding-bottom: 100px;
-}
-
-/* タイトルの調整 */
+/* WORKS */
+.works-section { padding: 120px 0 100px; }
 .page-title {
-    font-size: clamp(2rem, 5vw, 3.5rem); /* 画面サイズで可変 */
+    font-size: clamp(2rem, 5vw, 3.5rem);
     letter-spacing: 0.3em;
     text-align: center;
     margin-bottom: 60px;
-    font-weight: 900;
 }
-
-/* グリッドレイアウト：PCでは3列、スマホでは1列 */
 .works-grid {
     display: grid;
-    /* PCは3列、タブレットは2列、スマホは1列に自動調整 */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 0 20px;
 }
-
-.work-item {
-    width: 100%;
-}
-
 .work-thumbnail {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* 境目を少し見せる */
+    position: relative; aspect-ratio: 16/9;
+    overflow: hidden; background: #111;
 }
-
-.work-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-/* ホバー時のオーバーレイ（暗くなる膜） */
+.work-thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 .work-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    padding: 20px;
-    text-align: center;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    opacity: 0; transition: 0.4s; padding: 20px;
 }
+.work-item:hover .work-overlay { opacity: 1; }
+.work-item:hover img { transform: scale(1.05); }
 
-/* ホバー時の動き */
-.work-item:hover .work-thumbnail img {
-    transform: scale(1.1); /* 画像が少し拡大 */
-}
-
-.work-item:hover .work-overlay {
-    opacity: 1; /* 文字が浮かび上がる */
-}
-
-.work-category {
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.2em;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.work-name {
-    font-size: 1.2rem;
-    color: #fff;
-    letter-spacing: 0.1em;
-}
-
-/* スマホ用の調整 */
+/* ============================================================
+   4. スマホ用レスポンシブ (Mobile Adjustments)
+   ============================================================ */
 @media (max-width: 768px) {
-    .works-grid {
-        grid-template-columns: 1fr; /* スマホは1列 */
-    }
-    .page-title {
-        font-size: 2rem;
-    }
-}
-
-    /* --- WORKSページ全体の修正 --- */
-.works-page .works-section {
-    padding-top: 100px; /* タイトルがヘッダーに被らないよう余白を確保 */
-}
-
-/* --- スマホ・タブレット用の強制調整 --- */
-@media screen and (max-width: 768px) {
-    /* 1. PCナビを確実に消す */
-    .pc-nav {
-        display: none !important;
-    }
-
-    /* 2. ハンバーガーボタンを確実に表示 */
-    .menu-btn {
-        display: block !important;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 9999;
-    }
-
-    /* 3. 作品タイトルのサイズ調整 */
-    .page-title {
-        font-size: 1.8rem !important;
-        margin-bottom: 30px !important;
-        letter-spacing: 0.2em !important;
-    }
-
-    /* 4. 作品一覧の幅をスマホに最適化 */
-    .works-grid {
-        grid-template-columns: 1fr !important; /* 1列にする */
-        gap: 15px !important;
-        padding: 0 15px !important; /* 左右の余白を作る */
-    }
-
-    .work-item {
-        width: 100% !important;
-    }
-}
-
-/* --- PC・スマホ共通：画像がはみ出さない設定 --- */
-.work-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block; /* 下の隙間を消す */
+    .header-inner { padding: 0 20px; }
+    .pc-nav { display: none !important; }
+    .menu-btn { display: block !important; }
+    
+    .hero { height: 65vh; }
+    .section-title { font-size: 2.5rem; }
+    
+    .works-section { padding-top: 100px; }
+    .works-grid { grid-template-columns: 1fr; }
 }
