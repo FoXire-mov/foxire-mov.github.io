@@ -53,3 +53,48 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const worksGrid = document.getElementById('works-grid');
+    const loadMoreBtn = document.getElementById('load-more');
+    const itemsPerPage = 6; // 最初に見せる数
+    const loadCount = 4;    // ボタンを押して増える数
+    
+    const items = Array.from(worksGrid.querySelectorAll('.work-item'));
+
+    // 1. 最初：6個より後ろのアイテムを隠す
+    function updateVisibility() {
+        items.forEach((item, index) => {
+            if (index < itemsPerPage) {
+                item.classList.remove('is-hidden');
+            } else {
+                item.classList.add('is-hidden');
+            }
+        });
+        
+        // アイテムが6個以下ならボタンを消す
+        if (items.length <= itemsPerPage) {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+
+    updateVisibility();
+
+    // 2. ボタンを押した時の処理
+    loadMoreBtn.addEventListener('click', () => {
+        const hiddenItems = items.filter(item => item.classList.contains('is-hidden'));
+        
+        // 隠れているものを4つだけ表示させる
+        for (let i = 0; i < loadCount; i++) {
+            if (hiddenItems[i]) {
+                hiddenItems[i].classList.remove('is-hidden');
+            }
+        }
+
+        // 全部表示されたらボタンを消す
+        if (items.filter(item => item.classList.contains('is-hidden')).length === 0) {
+            loadMoreBtn.style.display = 'none';
+        }
+    });
+});
