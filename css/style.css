@@ -360,7 +360,7 @@ body {
 /* 料金表 */
 .price-grid {
     display: grid;
-    grid-template-columns: repeat(4ep1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     margin-bottom: 40px;
 }
@@ -521,4 +521,12 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+
+.sub-title-jp {
+    display: block;
+    font-size: 0.8rem; /* 英語よりかなり小さめに */
+    font-weight: 500;
+    color: #888;
+    letter-spacing: 0.1em;
 }
