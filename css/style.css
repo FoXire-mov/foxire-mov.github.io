@@ -531,11 +531,13 @@ body {
     letter-spacing: 0.1em;
 }
 
+/* ============================================================
+   コンセプトセクション (白背景・黒文字)
+   ============================================================ */
 .concept-section {
-    background-color: #000; /* 背景は黒 */
+    background-color: #ffffff; /* 背景を白に変更 */
     width: 100%;
-    /* 画面の高さに対してゆとりを持たせる（OTOIRO風） */
-    padding: 200px 0; 
+    padding: 60px 0 100px;         /* OTOIRO風のゆったりした余白 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -543,25 +545,21 @@ body {
 
 .concept-inner {
     width: 90%;
-    max-width: 800px; /* あえて少し絞ることで、中央に視線を集める */
+    max-width: 800px;
     text-align: center;
 }
 
 .concept-text {
     width: 100%;
     height: auto;
-    max-width: 600px; /* 画像が大きくなりすぎないよう制限 */
-    opacity: 0.9;      /* わずかに透過させると背景に馴染みます */
+    max-width: 650px;         /* 文字数に合わせて少し広げてもOK */
     display: inline-block;
-    image-rendering: -webkit-optimize-contrast; /* 画像のボケを防ぐ */
+    filter: none;             /* 画像に黒文字を使っている場合はそのままでOK */
 }
 
-/* スマホ用：余白が広すぎると間伸びするので少し詰める */
+/* スマホ用の調整 */
 @media screen and (max-width: 768px) {
     .concept-section {
-        padding: 120px 0;
-    }
-    .concept-inner {
-        max-width: 85%;
+        padding: 120px 0;     /* スマホでは余白を少し詰める */
     }
 }
