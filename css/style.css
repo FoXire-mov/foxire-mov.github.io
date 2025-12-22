@@ -537,7 +537,7 @@ body {
 .concept-section {
     background-color: #ffffff; /* 背景を白に変更 */
     width: 100%;
-    padding: 60px 0 100px;         /* OTOIRO風のゆったりした余白 */
+    padding: 40px 0 40px;         /* OTOIRO風のゆったりした余白 */
     display: flex;
     justify-content: center;
     align-items: center;
