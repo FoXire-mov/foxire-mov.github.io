@@ -560,6 +560,6 @@ body {
 /* スマホ用の調整 */
 @media screen and (max-width: 768px) {
     .concept-section {
-        padding: 120px 0;     /* スマホでは余白を少し詰める */
+        padding: 60px 0;     /* スマホでは余白を少し詰める */
     }
 }
