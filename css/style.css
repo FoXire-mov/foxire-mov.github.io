@@ -530,3 +530,38 @@ body {
     color: #888;
     letter-spacing: 0.1em;
 }
+
+.concept-section {
+    background-color: #000; /* 背景は黒 */
+    width: 100%;
+    /* 画面の高さに対してゆとりを持たせる（OTOIRO風） */
+    padding: 200px 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.concept-inner {
+    width: 90%;
+    max-width: 800px; /* あえて少し絞ることで、中央に視線を集める */
+    text-align: center;
+}
+
+.concept-text {
+    width: 100%;
+    height: auto;
+    max-width: 600px; /* 画像が大きくなりすぎないよう制限 */
+    opacity: 0.9;      /* わずかに透過させると背景に馴染みます */
+    display: inline-block;
+    image-rendering: -webkit-optimize-contrast; /* 画像のボケを防ぐ */
+}
+
+/* スマホ用：余白が広すぎると間伸びするので少し詰める */
+@media screen and (max-width: 768px) {
+    .concept-section {
+        padding: 120px 0;
+    }
+    .concept-inner {
+        max-width: 85%;
+    }
+}
