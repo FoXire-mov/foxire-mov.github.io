@@ -193,6 +193,21 @@ body {
 /* ============================================================
    6. ABOUT (CREATOR) PAGE
    ============================================================ */
+.about-page .about-section {
+    /* ヘッダー(80px)の下からコンテンツが始まるように調整 */
+    padding-top: 140px; 
+    padding-bottom: 80px;
+}
+
+/* もしWORKSページなどのタイトルと共通化したい場合 */
+.about-page .page-title {
+    color: #fff;              /* 背景が黒なので白文字 */
+    margin-bottom: 60px;
+    display: block;           /* 確実に要素として確保 */
+    position: relative;
+    z-index: 1;               /* 背面に隠れないように */
+}
+
 .section-lead {
     text-align: center; margin: 0 auto 60px; max-width: 800px;
     font-size: 1.1rem; word-break: auto-phrase;
