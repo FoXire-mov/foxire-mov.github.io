@@ -638,3 +638,44 @@ body {
     .pc-only { display: none; }
     .welcome-offer { padding: 30px 20px; width: 90%; }
 }
+
+/* --- SALE CAMPAIGN STYLES --- */
+
+/* トップ告知バー */
+.sale-top-banner {
+    background: #ff004c; /* OTOIRO風の鮮やかな赤 */
+    color: #fff;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+}
+
+.banner-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.sale-label {
+    background: #fff;
+    color: #ff004c;
+    font-weight: 900;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sale-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.sale-text strong {
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
