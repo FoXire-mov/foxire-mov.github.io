@@ -117,3 +117,33 @@ document.addEventListener('DOMContentLoaded', () => {
         updateWorksDisplay();
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const topicsList = document.querySelector('.topics-list');
+    
+    // JSONファイルを読み込む
+    fetch('topics.json')
+        .then(response => response.json())
+        .then(data => {
+            // HTMLの中身を一度空にする
+            topicsList.innerHTML = '';
+            
+            // データを1つずつHTMLに変換して追加
+            data.forEach(item => {
+                const topicElement = item.url 
+                    ? document.createElement('a') 
+                    : document.createElement('div');
+                
+                if (item.url) topicElement.href = item.url;
+                topicElement.className = 'topics-item';
+                
+                topicElement.innerHTML = `
+                    <div class="topics-date">${item.date}</div>
+                    <div class="topics-content">${item.content}</div>
+                `;
+                
+                topicsList.appendChild(topicElement);
+            });
+        })
+        .catch(error => console.error('Error loading topics:', error));
+});
