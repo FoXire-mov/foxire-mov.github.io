@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const topicsList = document.querySelector('.topics-list');
     
     // JSONファイルを読み込む
-    fetch('./js/topics.json')
+    fetch('./data/topics.json')
         .then(response => response.json())
         .then(data => {
             // HTMLの中身を一度空にする
