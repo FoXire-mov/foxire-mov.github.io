@@ -134,3 +134,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 });
+
+function copyEmail() {
+    const email = "foxire.editor@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+        // コピー成功時の演出
+        const status = document.getElementById('copy-status');
+        status.style.display = 'inline';
+        setTimeout(() => {
+            status.style.display = 'none';
+        }, 2000); // 2秒後にCopied!を消す
+        
+        alert("メールアドレスをコピーしました！"); // 簡易通知
+    });
+}
