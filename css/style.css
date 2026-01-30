@@ -528,3 +528,67 @@ body {
     .prep-grid { grid-template-columns: 1fr; }
     .concept-section { padding: 60px 0; }
 }
+
+/* ============================================================
+   13. NEWS ARTICLE PAGE (記事詳細ページ用)
+   ============================================================ */
+.article-section {
+    padding: 140px 0 100px; /* ヘッダーとの余白 */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+.article-date {
+    font-family: 'Montserrat', sans-serif;
+    color: #ff004c;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.article-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.4;
+    font-weight: 900;
+}
+
+.article-content {
+    line-height: 2;
+    font-size: 1.05rem;
+    color: #ccc;
+}
+
+.article-content p {
+    margin-bottom: 25px;
+}
+
+.article-content img {
+    margin: 40px 0;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.back-to-news {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.back-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid #555;
+    padding: 10px 30px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #fff;
+    color: #000;
+}
