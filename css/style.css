@@ -464,6 +464,24 @@ body {
     border-color: #ff004c;
     transform: translateY(-3px); 
 }
+/* メールボタン内のテキスト配置を補正 */
+.mail-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* 文字とCopied!を縦に並べる設定 */
+    line-height: 1.2;
+}
+
+/* 「Copied!」の文字がボタンの形を崩さないように浮かす */
+#copy-status {
+    position: absolute;
+    bottom: 2px;        /* ボタンの下側に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem !important;
+    color: #ff004c;     /* 目立つ色に */
+    white-space: nowrap;
+}
 
 /* スマホ用の最終調整 */
 @media screen and (max-width: 500px) {
